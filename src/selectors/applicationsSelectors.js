@@ -1,5 +1,5 @@
 import { compose } from "redux";
-import { sortedIndex } from "lodash";
+import { sortedIndex, sortBy } from "lodash";
 
 export const isLoadingAppsSelect = (state) =>
   state.applications.loadingGetApplications;
@@ -16,8 +16,8 @@ export const appsByHostSelect = (apps) => {
     } else {
       appList = [app];
     }
-    appList.sort();
-    hostMap[host] = appList;
+    appList = sortBy(appList, "apdex").reverse();
+    hostMap[host] = appList.slice(0, 5);
   };
 
   return apps.reduce((acc, app) => {

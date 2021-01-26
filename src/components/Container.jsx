@@ -6,6 +6,7 @@ import {
   isLoadingAppsSelect,
   appsByHostSelect,
 } from "../selectors/applicationsSelectors";
+import { WrapperComponent } from "./WrapperComponent";
 
 export const Container = () => {
   const dispatch = useDispatch();
@@ -26,14 +27,11 @@ export const Container = () => {
 
   return (
     <>
-      {isLoading ? (
+      {isLoading || !hosts ? (
         <p>Loading...</p>
       ) : (
         <>
-          {console.log(hosts)}
-          {apps.map((app, index) => (
-            <p key={app.name}>{app.name}</p>
-          ))}
+          <WrapperComponent list={hosts} />
         </>
       )}
     </>
