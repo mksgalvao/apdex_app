@@ -1,0 +1,23 @@
+.wrapper {
+  background-color: #e6e6e6;
+  max-width: 840px;
+  align-items: center;
+  display: flow-root;
+}
+ul {
+  display: contents;
+}
+
+.grid {
+  padding: 0;
+  margin: 0;
+  float: left;
+  list-style: none;
+  width: 50%; //helps to determine number of columns, for instance 33.3% displays 3 columns
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}

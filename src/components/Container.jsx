@@ -30,9 +30,9 @@ export const Container = () => {
       {isLoading || !hosts ? (
         <p>Loading...</p>
       ) : (
-        <>
+        <div className="d-flex justify-content-center">
           <WrapperComponent list={hosts} />
-        </>
+        </div>
       )}
     </>
   );

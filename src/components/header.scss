@@ -1,0 +1,22 @@
+.headerWrapper {
+  display: flex;
+}
+
+.label {
+  font-size: 13px;
+  margin: 0;
+}
+
+.titleHeader {
+  width: 320px;
+}
+.titleWrapper {
+  width: 600px;
+}
+
+.inputWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin: 0 30px;
+}
