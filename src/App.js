@@ -1,7 +1,7 @@
 import { Container } from "./components/Container";
 import { Provider } from "react-redux";
 
-import configureStore from "./reducers/store";
+import configureStore from "./store/index";
 
 const { store } = configureStore();
 

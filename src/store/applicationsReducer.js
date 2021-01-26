@@ -5,7 +5,7 @@ import {
 } from "../actions/applicationsActions";
 
 const initialState = {
-  loadingGetApplications: false,
+  loadingGetApplications: true,
   errorGetApplications: false,
   applications: [],
 };
