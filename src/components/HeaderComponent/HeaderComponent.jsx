@@ -21,7 +21,7 @@ export const HeaderComponent = (props) => {
           id="visualization"
           onClick={onInputSelect}
         />
-        <label className="label" for="visualization">
+        <label className="label" htmlFor="visualization">
           {props.showList ? "Show as an awesome grid" : "Show as a list"}
         </label>
       </div>

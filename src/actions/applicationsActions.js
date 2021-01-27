@@ -15,7 +15,7 @@ const getTopAppsByHost = (apps) => {
       appList = [app];
     }
     appList = sortBy(appList, "apdex").reverse();
-    hostMap[host] = appList.slice(0, 5); // should be 5
+    hostMap[host] = appList.slice(0, 25);
   };
 
   return reduce(

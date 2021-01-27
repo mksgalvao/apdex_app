@@ -11,7 +11,9 @@ export const CardComponent = (props) => {
   return (
     <Card className={props.showList ? "bigCard" : "smallCard"}>
       <span className="title">{props.item[0]}</span>
-      {props.item[1].map((app) => (
+      {props.item[1].slice(0, 5).map((
+        app // using slice to get the 5 first ones
+      ) => (
         <div
           key={app.name}
           onClick={(e) => handleCardClick(app)}
