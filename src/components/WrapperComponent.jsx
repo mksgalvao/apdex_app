@@ -7,22 +7,24 @@ import "./wrapperComponent.scss";
 export const WrapperComponent = (props) => {
   const [showList, setShowList] = useState(true);
 
-  const setVisualisation = () => {
+  const setVisualization = () => {
     setShowList(!showList);
   };
   return (
     <div className="wrapper">
       <HeaderComponent
-        setVisualisation={setVisualisation}
+        setVisualization={setVisualization}
         showList={showList}
       />
-      <ul>
-        {Object.entries(props.list).map((item, index) => (
-          <li className={showList ? "list" : "grid"}>
-            <CardComponent key={index} item={item} showList={showList} />
-          </li>
-        ))}
-      </ul>
+      <div className="listWrapper">
+        <ul>
+          {Object.entries(props.list).map((item, index) => (
+            <li key={index} className={showList ? "list" : "grid"}>
+              <CardComponent item={item} showList={showList} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

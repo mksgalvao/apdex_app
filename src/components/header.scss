@@ -1,5 +1,7 @@
 .headerWrapper {
   display: flex;
+  width: 100%;
+  padding: 30px;
 }
 
 .label {
@@ -7,16 +9,24 @@
   margin: 0;
 }
 
-.titleHeader {
-  width: 320px;
+.email {
+  max-width: 330px;
 }
-.titleWrapper {
-  width: 600px;
+
+.headerTitle {
+  width: 230px;
+  font-weight: bold;
+}
+
+.textWrapper {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
 }
 
 .inputWrapper {
   display: flex;
-  width: 100%;
   justify-content: flex-end;
-  margin: 0 30px;
+  margin-left: 30px;
+  width: 250px;
 }

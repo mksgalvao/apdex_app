@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getTopAppsByHost } from "../actions/applicationsActions";
+import { getApps } from "../actions/applicationsActions";
 import {
-  getAllAppsSelect,
+  getTopAppsByHostSelect,
   isLoadingAppsSelect,
-  appsByHostSelect,
 } from "../selectors/applicationsSelectors";
 import { WrapperComponent } from "./WrapperComponent";
 
@@ -13,25 +12,19 @@ export const Container = () => {
   const state = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(getTopAppsByHost());
+    dispatch(getApps());
   }, [dispatch]);
 
   const isLoading = isLoadingAppsSelect(state);
-  const apps = getAllAppsSelect(state);
-
-  let hosts;
-
-  if (apps !== undefined) {
-    hosts = appsByHostSelect(apps);
-  }
+  const apps = getTopAppsByHostSelect(state);
 
   return (
     <>
-      {isLoading || !hosts ? (
+      {isLoading ? (
         <p>Loading...</p>
       ) : (
         <div className="d-flex justify-content-center">
-          <WrapperComponent list={hosts} />
+          <WrapperComponent list={apps} />
         </div>
       )}
     </>
