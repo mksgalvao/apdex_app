@@ -4,7 +4,7 @@ import { getApps } from "../actions/applicationsActions";
 import { WrapperComponent } from "../components/WrapperComponent/WrapperComponent";
 import { Spinner } from "react-bootstrap";
 
-import "../components/loading.scss";
+import "../components/style.scss";
 
 export const Container = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,10 @@ export const Container = () => {
     (state) => state.applications.loadingGetApplications
   );
 
+  const isError = useSelector(
+    (state) => state.applications.errorGetApplications
+  );
+
   const apps = useSelector((state) => state.applications.applications);
 
   return (
@@ -24,9 +28,19 @@ export const Container = () => {
       {isLoading ? (
         <Spinner className="loading" animation="border" />
       ) : (
-        <div className="d-flex justify-content-center">
-          <WrapperComponent list={Object.entries(apps)} />
-        </div>
+        <>
+          {isError ? (
+            <>
+              <span className="error">
+                Something went wrong, try again later!
+              </span>
+            </>
+          ) : (
+            <div className="d-flex justify-content-center">
+              <WrapperComponent list={Object.entries(apps)} />
+            </div>
+          )}
+        </>
       )}
     </>
   );

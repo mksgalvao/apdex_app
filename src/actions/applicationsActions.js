@@ -5,6 +5,9 @@ export const GET_APPLICATIONS_SUCCESS = "GET_APPLICATIONS_SUCCESS";
 export const GET_APPLICATIONS_ERROR = "GET_APPLICATIONS_ERROR";
 export const GET_APPLICATIONS_LOADING = "GET_APPLICATIONS_LOADING";
 
+/* The complexity for this solution was O(nxm) where 'n' 
+    is the number of apps  and 'm' the number of hosts in the list */
+
 const getTopAppsByHost = (apps) => {
   const addAppToHosts = (app, host, hostMap) => {
     let appList = hostMap[host];

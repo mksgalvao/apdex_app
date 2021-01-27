@@ -46,4 +46,5 @@ npm start
 ## NEXT STEPS
 
 - make unitary tests for all components
+- make unit test for getApps method
 - improve responsivity
