@@ -1,4 +1,4 @@
-import { Container } from "./components/Container";
+import { Container } from "./Container/Container";
 import { Provider } from "react-redux";
 
 import configureStore from "./store/index";

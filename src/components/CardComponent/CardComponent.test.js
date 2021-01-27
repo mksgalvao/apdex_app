@@ -9,6 +9,7 @@ import { mockedApps } from "../../utils/apps";
 
 describe("Testing cardComponent", () => {
   let cardComponent;
+  jest.spyOn(window, "alert").mockImplementation(() => {});
 
   beforeEach(() => {
     cardComponent = shallow(
@@ -18,6 +19,7 @@ describe("Testing cardComponent", () => {
 
   it("CardComponent should render", () => {
     expect(cardComponent).toMatchSnapshot();
+    console.log(mockedApps);
   }),
     it("Should open alert on item was clicked", () => {
       jest.spyOn(window, "alert").mockImplementation(() => {});

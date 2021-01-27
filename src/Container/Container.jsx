@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getApps } from "../actions/applicationsActions";
-import { WrapperComponent } from "./WrapperComponent/WrapperComponent";
+import { WrapperComponent } from "../components/WrapperComponent/WrapperComponent";
+import { Spinner } from "react-bootstrap";
+
+import "../components/loading.scss";
 
 export const Container = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(getApps());
@@ -20,7 +22,7 @@ export const Container = () => {
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        <Spinner className="loading" animation="border" />
       ) : (
         <div className="d-flex justify-content-center">
           <WrapperComponent list={Object.entries(apps)} />
