@@ -1,5 +1,4 @@
 import axios from "axios";
-import { getmockedApps } from "../utils/apps";
 import { sortedIndex, sortBy, reduce } from "lodash";
 
 export const GET_APPLICATIONS_SUCCESS = "GET_APPLICATIONS_SUCCESS";
@@ -37,20 +36,17 @@ export const getApps = () => {
       type: GET_APPLICATIONS_LOADING,
     });
 
-    // axios.get("https://kuupanda.free.beeceptor.com/apps").then((response) => {
-
-    setTimeout(function () {
-      const response = getmockedApps();
-      if (response.response.status === 200) {
+    axios.get("https://kuupanda.free.beeceptor.com/apps").then((response) => {
+      if (response.status === 200) {
         dispatch({
           type: GET_APPLICATIONS_SUCCESS,
-          data: getTopAppsByHost(response.response.data),
+          data: getTopAppsByHost(response.data),
         });
       } else {
         dispatch({
           type: GET_APPLICATIONS_ERROR,
         });
       }
-    }, 2000);
+    });
   };
 };

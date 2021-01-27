@@ -2,7 +2,7 @@ import reducer from "./applicationsReducer";
 import * as actions from "../actions/applicationsActions";
 
 import expect from "expect";
-import { getmockedApps } from "../utils/apps";
+import { getmockedApps } from "../fixtures/mockedApps";
 
 const initialState = {
   loadingGetApplications: true,
